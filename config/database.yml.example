@@ -1,0 +1,14 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *defaults
+  database: my_podcasts_development
+
+test:
+  <<: *defaults
+  database: my_podcasts_test

@@ -9,11 +9,12 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails-i18n'
+gem 'omniauth-twitter'
+gem 'settingslogic'
 
 group :development do
   gem 'annotate'
   gem 'better_errors'
-  # gem 'binding_of_caller'
   gem 'thin'
   gem 'meta_request'
 end

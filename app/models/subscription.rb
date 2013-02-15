@@ -15,4 +15,7 @@ class Subscription < ActiveRecord::Base
 
   validates :user_id, :podcast_id, presence: true
   validates :user_id, uniqueness: { scope: :podcast_id }
+
+  belongs_to :user
+  belongs_to :podcast
 end

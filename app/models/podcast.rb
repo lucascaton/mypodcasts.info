@@ -19,6 +19,7 @@ class Podcast < ActiveRecord::Base
   attr_accessible :name, :feed_url, :itunes_url, :logo
 
   validates :name, :active, presence: true
-
   validates :name, :feed_url, :itunes_url, uniqueness: true
+
+  has_many :subscription
 end

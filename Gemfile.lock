@@ -57,6 +57,10 @@ GEM
     commonjs (0.2.6)
     daemons (1.1.9)
     diff-lcs (1.1.3)
+    draper (1.1.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -175,6 +179,7 @@ GEM
     rdoc (3.12.1)
       json (~> 1.4)
     ref (1.0.2)
+    request_store (1.0.5)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -241,6 +246,7 @@ DEPENDENCIES
   better_errors
   capybara
   coffee-rails (~> 3.2.1)
+  draper
   factory_girl_rails
   forgery
   fuubar

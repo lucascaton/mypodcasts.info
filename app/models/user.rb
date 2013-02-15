@@ -11,7 +11,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :subscription
+  has_many :subscriptions
 
   def self.from_omniauth(auth)
     where(auth.slice('provider', 'uid')).first || create_from_omniauth(auth)

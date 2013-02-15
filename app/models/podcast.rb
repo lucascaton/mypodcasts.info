@@ -24,12 +24,12 @@ class Podcast < ActiveRecord::Base
   validates :name, :feed_url, :itunes_url, uniqueness: true
   validates :active, inclusion: { in: [true, false] }
 
-  has_many :subscription
+  has_many :subscriptions
   belongs_to :created_by, class_name: 'User'
 
   before_validation :set_active
 
-  has_attached_file :logo, styles: { logo: '500x500>' }
+  has_attached_file :logo, styles: { logo: '300x300>' }
 
   private
 

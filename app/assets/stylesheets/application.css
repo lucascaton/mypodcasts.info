@@ -22,3 +22,8 @@ footer p{
 .centered_text{
   text-align: center;
 }
+
+p.podcast_overview{
+  font-size: 1.4em;
+  line-height: 160%;
+}

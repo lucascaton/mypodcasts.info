@@ -35,7 +35,7 @@
               -if current_user
                 %li
                   =link_to root_path do
-                    %em.icon-user
+                    =current_user.twitter_photo
                     ="@#{current_user.name}"
                 %li
                   =link_to signout_path do
@@ -54,5 +54,5 @@
           =yield
 
       %footer
-        %p="Copyright &copy; #{Date.today.year} Sotix. Todos os direitos reservados.".html_safe
+        %p="Copyright &copy; #{Date.today.year} Lucas Caton. Todos os direitos reservados.".html_safe
     =javascript_include_tag 'application'

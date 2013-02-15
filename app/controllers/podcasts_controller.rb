@@ -1,9 +1,10 @@
 # encoding: utf-8
 class PodcastsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!
 
   def show
-    @podcast = Podcast.find params[:id]
+    @podcast = Podcast.find(params[:id]).decorate
+    @subscribers = @podcast.subscriptions.map(&:user)
   end
 
   def new

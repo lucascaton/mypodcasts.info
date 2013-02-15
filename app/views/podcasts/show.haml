@@ -1,1 +1,40 @@
-%h1=@podcast.name
+-if @podcast.active?
+  .row
+    .span3
+      =image_tag @podcast.logo.url(:logo)
+      %br
+      %br
+      .centered_text
+        =link_to image_tag('feed.png'), @podcast.feed_url, target: '_blank',
+          rel: 'popover', 'data-placement' => 'bottom',
+          'data-original-title' => t('activerecord.attributes.podcast.feed_url'),
+          'data-trigger' => 'hover', 'data-content' => @podcast.feed_url
+
+        =link_to image_tag('itunes.png'), @podcast.itunes_url, target: '_blank',
+          rel: 'popover', 'data-placement' => 'bottom',
+          'data-original-title' => t('activerecord.attributes.podcast.itunes_url'),
+          'data-trigger' => 'hover', 'data-content' => @podcast.itunes_url
+    .span9
+      %h1=@podcast.name
+      -if current_user.subscriptions.map(&:podcast).include? @podcast
+        =link_to 'Retirar da minha lista', '#', class: 'btn btn-danger'
+      -else
+        =link_to 'Incluir na minha lista', '#', class: 'btn btn-success'
+      %br
+      %br
+      .well
+        %p.podcast_overview=@podcast.overview.gsub(/\n/, '<br />').html_safe
+      -if @subscribers.any?
+        .well
+          %h4 Quem escuta?
+          %table.table.table-striped
+            %tbody
+              -@subscribers.each do |user|
+                %tr
+                  %td
+                    =user.twitter_photo
+                    =user.name
+
+-else
+  %h2=@podcast.name
+  %h3.muted Ainda não aprovado.

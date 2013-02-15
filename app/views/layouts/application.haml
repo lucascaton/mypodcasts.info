@@ -24,32 +24,35 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href='#') My Podcasts
+          =link_to 'My Podcasts', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li=link_to 'Link 1', '/path1'
-              %li=link_to 'Link 2', '/path2'
+              %li
+                =link_to root_path do
+                  %em.icon-volume-down
+                  Incluir podcast
             %ul.nav.pull-right
               -if current_user
-                %li Signed in as #{current_user.name}
-                %li=link_to 'Sair', signout_path
+                %li
+                  =link_to root_path do
+                    %em.icon-user
+                    ="@#{current_user.name}"
+                %li
+                  =link_to signout_path do
+                    %em.icon-off
+                    Sair
               -else
-                %li=link_to 'Logar com o Twitter', '/auth/twitter'
+                %li
+                  =link_to '/auth/twitter' do
+                    =image_tag 'twitter_icon.png'
+                    Logar com o Twitter
 
     .container
       .row
-        .span9
+        .span12
           =bootstrap_flash
           =yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li=link_to 'Link 1', '/path1'
-              %li=link_to 'Link 2', '/path2'
-              %li=link_to 'Link 3', '/path3'
 
       %footer
-        %p &copy; Sotix #{Date.today.year}
+        %p="Copyright &copy; #{Date.today.year} Sotix. Todos os direitos reservados.".html_safe
     =javascript_include_tag 'application'

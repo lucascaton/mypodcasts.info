@@ -6,3 +6,19 @@
 body{
   padding-top: 60px;
 }
+
+footer{
+  background-color: #EEE;
+  margin-top: 30px;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #BBB;
+}
+
+footer p{
+  margin-top: 4px;
+}
+
+.centered_text{
+  text-align: center;
+}

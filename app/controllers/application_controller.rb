@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -9,6 +10,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authenticate_user!
-    redirect_to root_path if current_user.blank?
+    if current_user.blank?
+      flash[:error] = 'Você precisa se logar primeiro!'
+      redirect_to root_path
+    end
   end
 end

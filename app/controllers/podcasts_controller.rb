@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PodcastsController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
 
@@ -14,7 +15,7 @@ class PodcastsController < ApplicationController
     @podcast.created_by = current_user
 
     if @podcast.save
-      flash[:notice] = 'Podcast cadastrado!'
+      flash[:notice] = 'Podcast cadastrado. Aguarde a aprovação do mesmo.'
       redirect_to @podcast
     else
       flash.now[:error] = @podcast.errors.full_messages.join(', ')

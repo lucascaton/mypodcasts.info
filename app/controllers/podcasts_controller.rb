@@ -1,4 +1,6 @@
 class PodcastsController < ApplicationController
+  before_filter :authenticate_user!, except: [:show]
+
   def show
     @podcast = Podcast.find params[:id]
   end

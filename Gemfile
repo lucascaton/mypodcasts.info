@@ -1,21 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
-gem 'jquery-rails'
 gem 'haml-rails'
-gem 'pg'
-gem 'therubyracer'
+gem 'jquery-rails'
 gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-gem 'rails-i18n'
 gem 'omniauth-twitter'
+gem 'pg'
+gem 'rails', '3.2.12'
+gem 'rails-i18n'
 gem 'settingslogic'
+gem 'therubyracer'
+gem 'twitter-bootstrap-rails'
 
 group :development do
   gem 'annotate'
   gem 'better_errors'
-  gem 'thin'
   gem 'meta_request'
+  gem 'thin'
 end
 
 group :development, :test do

@@ -26,6 +26,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'forgery'
+  gem 'fuubar'
   gem 'poltergeist'
   gem 'rspec-rails'
   gem 'simplecov', require: false

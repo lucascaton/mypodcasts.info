@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215015327) do
+ActiveRecord::Schema.define(:version => 20130215024111) do
 
   create_table "podcasts", :force => true do |t|
     t.string   "name",                                 :null => false
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20130215015327) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.integer  "created_by_id",                        :null => false
+    t.text     "overview"
   end
 
   add_index "podcasts", ["feed_url"], :name => "index_podcasts_on_feed_url", :unique => true

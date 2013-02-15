@@ -1,0 +1,21 @@
+pt-BR:
+  errors:
+    messages:
+      in_between: 'deve ter no máximo 2mb.'
+
+  activerecord:
+    models:
+      user: 'Usuário'
+      podcast: 'Podcast'
+
+    attributes:
+      user:
+        name: 'Nome'
+      podcast:
+        name: 'Nome'
+        overview: 'Resumo'
+        feed_url: 'URL do feed'
+        itunes_url: 'URL do iTunes'
+        logo: 'Logo'
+      subscription:
+        score: 'Nota'

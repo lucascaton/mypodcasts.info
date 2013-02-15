@@ -1,1 +1,33 @@
-%h1 Podcasts#new
+%h2 Incluir podcast
+%br
+
+=form_for @podcast, html: { multipart: true, class: 'form-horizontal' } do |f|
+  .control-group
+    =f.label :name, class: 'control-label'
+    .controls
+      =f.text_field :name, class: 'input-xlarge'
+
+  .control-group
+    =f.label :overview, class: 'control-label'
+    .controls
+      =f.text_area :overview, rows: 5, class: 'input-xxlarge'
+
+  .control-group
+    =f.label :feed_url, class: 'control-label'
+    .controls
+      =f.text_field :feed_url, class: 'input-xxlarge'
+
+  .control-group
+    =f.label :itunes_url, class: 'control-label'
+    .controls
+      =f.text_field :itunes_url, class: 'input-xxlarge'
+
+  .control-group
+    =f.label :logo, class: 'control-label'
+    .controls
+      =f.file_field :logo
+      %span.help-block Utilize uma imagem de tamanho 500 X 500px.
+
+  .control-group
+    .controls
+      =f.submit 'Salvar', class: 'btn btn-primary btn-large', disable_with: 'Salvando...'

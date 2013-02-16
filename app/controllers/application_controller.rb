@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     if current_user.blank?
-      flash[:error] = 'Você precisa se logar primeiro!'
+      flash[:error] = 'Você precisa se logar antes de ver essa página!'
       redirect_to root_path
     end
   end

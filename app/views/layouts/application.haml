@@ -35,10 +35,10 @@
             %ul.nav.pull-right
               -if current_user
                 %li
-                  =link_to current_user, rel: 'popover', 'data-placement' => 'bottom', 'data-original-title' => 'Perfil',
+                  =link_to profile_path(current_user.name), rel: 'popover', 'data-placement' => 'bottom', 'data-original-title' => 'Perfil',
                     'data-trigger' => 'hover', 'data-content' => 'Visualizar o seu perfil publico' do
                     =current_user.twitter_photo
-                    ="@#{current_user.name}"
+                    =current_user.name
                 %li
                   =link_to signout_path do
                     %em.icon-off

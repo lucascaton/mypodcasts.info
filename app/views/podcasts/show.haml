@@ -8,12 +8,12 @@
         =link_to image_tag('feed.png'), @podcast.feed_url, target: '_blank',
           rel: 'popover', 'data-placement' => 'bottom',
           'data-original-title' => t('activerecord.attributes.podcast.feed_url'),
-          'data-trigger' => 'hover', 'data-content' => @podcast.feed_url
+          'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do seu leitor de feed'
 
         =link_to image_tag('itunes.png'), @podcast.itunes_url, target: '_blank',
           rel: 'popover', 'data-placement' => 'bottom',
           'data-original-title' => t('activerecord.attributes.podcast.itunes_url'),
-          'data-trigger' => 'hover', 'data-content' => @podcast.itunes_url
+          'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do iTunes'
 
       %br
       %h3 Sua nota
@@ -33,16 +33,18 @@
         %p.podcast_overview=@podcast.overview.gsub(/\n/, '<br />').html_safe
       -if @subscribers.any?
         .well
-          %h4 Quem escuta?
-          %h5="(#{ pluralize @podcast.subscriptions.count, 'ouvinte' })"
+          %h4="#{ pluralize @podcast.subscriptions.count, 'ouvinte' }:"
+          %br
           %table.table.table-striped
             %tbody
               -@subscribers.each do |user|
                 %tr
                   %td.photo
-                    =user.twitter_photo('normal')
+                    =link_to profile_path(user.name) do
+                      =user.twitter_photo('normal')
                   %td
-                    %h4=user.name
+                    =link_to profile_path(user.name) do
+                      %h4=user.name
 
 -else
   %h2=@podcast.name

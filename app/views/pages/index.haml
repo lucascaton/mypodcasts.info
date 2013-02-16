@@ -1,3 +1,5 @@
+.well.centered_text
+  %h2 Cadastre os seus podcasts preferidos e crie um perfil público para compartilhar os podcasts que vocês mais gosta!
 .row
   .span6
     .well
@@ -6,20 +8,11 @@
         %br
         %table.table.table-striped
           %tbody
-            -if current_user
-              %tr.highlighted
-                %td
-                  =link_to current_user do
-                    =current_user.twitter_photo
-                    =current_user.name
-                %td
-                  ="(#{ pluralize current_user.subscriptions.count, 'podcast' })"
-            -@users.each do |user|
-              %tr
-                %td
-                  =link_to user do
-                    =user.twitter_photo
-                    =user.name
+            -([current_user] + @users).compact.each do |user|
+              %tr{ class: user == current_user ? 'highlighted' : '' }
+                %td.photo_and_name
+                  =link_to user.twitter_photo, profile_path(user.name)
+                  =link_to user.name, profile_path(user.name)
                 %td
                   ="(#{ pluralize user.subscriptions.count, 'podcast' })"
 
@@ -37,5 +30,6 @@
                     =image_tag podcast.logo.url(:thumb)
                   ="#{link_to(podcast.name, podcast)} (#{ pluralize podcast.subscriptions.count, 'ouvinte' })".html_safe
                   .score_read_only{ 'data-score' => podcast.score_average }
-                %td=render 'subscriptions/links', podcast: podcast,
-                  subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new
+                -if current_user
+                  %td=render 'subscriptions/links', podcast: podcast,
+                    subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new

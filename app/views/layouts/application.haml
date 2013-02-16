@@ -27,10 +27,11 @@
           =link_to 'My Podcasts', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li
-                =link_to new_podcast_path do
-                  %em.icon-volume-down
-                  Incluir podcast
+              -if current_user
+                %li
+                  =link_to new_podcast_path do
+                    %em.icon-volume-down
+                    Incluir podcast
             %ul.nav.pull-right
               -if current_user
                 %li

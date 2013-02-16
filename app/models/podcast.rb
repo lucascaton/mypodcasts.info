@@ -15,9 +15,11 @@
 #  logo_updated_at   :datetime
 #  created_by_id     :integer          not null
 #  overview          :text
+#  slug              :string(255)
 #
 
 class Podcast < ActiveRecord::Base
+  extend FriendlyId
   attr_accessible :name, :feed_url, :itunes_url, :logo, :created_by_id, :overview
 
   validates :name, :created_by_id, presence: true
@@ -29,7 +31,11 @@ class Podcast < ActiveRecord::Base
 
   before_validation :set_active
 
-  has_attached_file :logo, styles: { logo: '300x300>' }
+  has_attached_file :logo, styles: { logo: '300x300>', thumb: '100x100>' }
+
+  friendly_id :name, use: :slugged
+
+  scope :actives, where(active: true)
 
   private
 

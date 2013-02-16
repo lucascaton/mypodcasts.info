@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'draper'
+gem 'friendly_id'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'less-rails'

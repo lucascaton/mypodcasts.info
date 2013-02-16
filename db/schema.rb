@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215024111) do
+ActiveRecord::Schema.define(:version => 20130216014009) do
 
   create_table "podcasts", :force => true do |t|
     t.string   "name",                                 :null => false
@@ -26,11 +26,13 @@ ActiveRecord::Schema.define(:version => 20130215024111) do
     t.datetime "logo_updated_at"
     t.integer  "created_by_id",                        :null => false
     t.text     "overview"
+    t.string   "slug"
   end
 
   add_index "podcasts", ["feed_url"], :name => "index_podcasts_on_feed_url", :unique => true
   add_index "podcasts", ["itunes_url"], :name => "index_podcasts_on_itunes_url", :unique => true
   add_index "podcasts", ["name"], :name => "index_podcasts_on_name", :unique => true
+  add_index "podcasts", ["slug"], :name => "index_podcasts_on_slug", :unique => true
 
   create_table "subscriptions", :force => true do |t|
     t.integer  "user_id",    :null => false

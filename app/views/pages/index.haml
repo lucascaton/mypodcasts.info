@@ -36,7 +36,7 @@
                   %td
                     =link_to podcast do
                       =image_tag podcast.logo.url(:thumb)
-                      =podcast.name
-                  %td="(#{ pluralize podcast.subscriptions.count, 'ouvinte' })"
-                  %td=render 'subscriptions/links', podcast: podcast, button_css: 'btn-mini',
+                    ="#{link_to(podcast.name, podcast)} (#{ pluralize podcast.subscriptions.count, 'ouvinte' })".html_safe
+                    .score_read_only{ 'data-score' => podcast.score_average }
+                  %td=render 'subscriptions/links', podcast: podcast,
                     subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new

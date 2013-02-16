@@ -19,7 +19,10 @@ function setupRaty(){
     },
     score: function(){
       return $(this).attr('data-score');
-    }
+    },
+    starHalf: 'star-half-big.png',
+    starOff: 'star-off-big.png',
+    starOn: 'star-on-big.png'
   });
 
   $('.score_read_only').raty({
@@ -30,5 +33,18 @@ function setupRaty(){
     score: function(){
       return $(this).attr('data-score');
     }
+  });
+
+  $('.score_read_only_big').raty({
+    number: 10,
+    path: '../assets/raty',
+    width: 280,
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    starHalf: 'star-half-big.png',
+    starOff: 'star-off-big.png',
+    starOn: 'star-on-big.png'
   });
 }

@@ -23,10 +23,10 @@
           #score{ 'data-score' => @subscription.score }
             =f.hidden_field :score
       %h3 Nota média
-      .score_read_only{ 'data-score' => @podcast.score_average }
+      .score_read_only_big{ 'data-score' => @podcast.score_average }
     .span9
       %h1=@podcast.name
-      =render 'subscriptions/links', podcast: @podcast, subscription: @subscription, button_css: ''
+      =render 'subscriptions/links', podcast: @podcast, subscription: @subscription
       %br
       %br
       .well

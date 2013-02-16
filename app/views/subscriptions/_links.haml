@@ -2,8 +2,8 @@
   -if subscription.new_record?
     =form_for subscription do |f|
       =f.hidden_field :podcast_id, value: podcast.id
-      =f.button 'Incluir na minha lista', class: "btn btn-success #{button_css}"
+      =f.button 'Incluir na minha lista', class: 'btn btn-success'
   -else
     =link_to 'Retirar da minha lista', subscription_path(subscription),
-      method: :delete, class: "btn btn-danger #{button_css}",
+      method: :delete, class: 'btn btn-danger',
       confirm: 'Tem certeza que deseja retirar esse podcast da sua lista? Sua nota para esse podcast será perdida!'

@@ -22,7 +22,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.user == current_user
       @subscription.destroy
-      redirect_to @subscription.podcast
+      redirect_to root_path
     else
       flash[:error] = 'Você não tem autorização para isso.'
       redirect_to @subscription.podcast

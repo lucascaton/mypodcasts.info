@@ -31,11 +31,12 @@
                 %li
                   =link_to new_podcast_path do
                     %em.icon-volume-down
-                    Incluir podcast
+                    Incluir outros podcasts
             %ul.nav.pull-right
               -if current_user
                 %li
-                  =link_to current_user do
+                  =link_to current_user, rel: 'popover', 'data-placement' => 'bottom', 'data-original-title' => 'Perfil',
+                    'data-trigger' => 'hover', 'data-content' => 'Visualizar o seu perfil publico' do
                     =current_user.twitter_photo
                     ="@#{current_user.name}"
                 %li

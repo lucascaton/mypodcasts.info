@@ -1,10 +1,10 @@
-%h2 Incluir podcast
-.alert
-  %button.close(type='button' data-dismiss='alert') &times;
-  %strong Atenção!
-  Cadastre apenas podcasts que ainda
-  %strong NÃO
-  estiverem cadastrados!
+%h2 Cadastrar podcast
+-# .alert
+-#   %button.close(type='button' data-dismiss='alert') &times;
+-#   %strong Atenção!
+-#   Cadastre apenas podcasts que ainda
+-#   %strong NÃO
+-#   estiverem cadastrados!
 %br
 
 =form_for @podcast, html: { multipart: true, class: 'form-horizontal' } do |f|

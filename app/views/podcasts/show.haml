@@ -39,9 +39,10 @@
             %tbody
               -@subscribers.each do |user|
                 %tr
+                  %td.photo
+                    =user.twitter_photo('normal')
                   %td
-                    =user.twitter_photo
-                    =user.name
+                    %h4=user.name
 
 -else
   %h2=@podcast.name

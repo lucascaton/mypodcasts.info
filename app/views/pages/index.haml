@@ -30,13 +30,12 @@
         %br
         %table.table.table-striped
           %tbody
-            -5.times do
-              -@podcasts.each do |podcast|
-                %tr
-                  %td
-                    =link_to podcast do
-                      =image_tag podcast.logo.url(:thumb)
-                    ="#{link_to(podcast.name, podcast)} (#{ pluralize podcast.subscriptions.count, 'ouvinte' })".html_safe
-                    .score_read_only{ 'data-score' => podcast.score_average }
-                  %td=render 'subscriptions/links', podcast: podcast,
-                    subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new
+            -@podcasts.each do |podcast|
+              %tr
+                %td
+                  =link_to podcast do
+                    =image_tag podcast.logo.url(:thumb)
+                  ="#{link_to(podcast.name, podcast)} (#{ pluralize podcast.subscriptions.count, 'ouvinte' })".html_safe
+                  .score_read_only{ 'data-score' => podcast.score_average }
+                %td=render 'subscriptions/links', podcast: podcast,
+                  subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new

@@ -1,1 +1,26 @@
-%h1 User#show
+.row
+  .span3
+    =@user.twitter_photo('original')
+    %br
+    %br
+    .centered_text
+      %h1="@#{@user.name}"
+      %p="Membro desde #{l @user.created_at.to_date}"
+
+  .span9
+    .well
+      -if @subscriptions.any?
+        %h2="#{ pluralize @user.subscriptions.count, 'podcast' }"
+        %table.table.table-striped
+          %tbody
+            -@subscriptions.each do |subscription|
+              %tr
+                %td
+                  =link_to subscription.podcast do
+                    =image_tag subscription.podcast.logo.url(:logo)
+                %td
+                  %h3="#{link_to(subscription.podcast.name, subscription.podcast)} (#{ pluralize subscription.podcast.subscriptions.count, 'ouvinte' })".html_safe
+                  %h4 Nota do usuário
+                  .score_read_only_big{ 'data-score' => subscription.score }
+                  %h4 Nota média
+                  .score_read_only_big{ 'data-score' => subscription.podcast.score_average }

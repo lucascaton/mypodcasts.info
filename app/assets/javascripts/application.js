@@ -9,7 +9,7 @@ $(function(){
 });
 
 function setupRaty(){
-  $('#star').raty({
+  $('#score').raty({
     number: 10,
     path: '../assets/raty',
     scoreName: 'subscription[score]',
@@ -17,6 +17,16 @@ function setupRaty(){
     click: function(score, evt){
       $('#subscription_form').submit();
     },
+    score: function(){
+      return $(this).attr('data-score');
+    }
+  });
+
+  $('.score_read_only').raty({
+    number: 10,
+    path: '../assets/raty',
+    width: 280,
+    readOnly: true,
     score: function(){
       return $(this).attr('data-score');
     }

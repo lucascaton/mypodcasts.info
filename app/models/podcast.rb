@@ -37,6 +37,11 @@ class Podcast < ActiveRecord::Base
 
   scope :actives, where(active: true)
 
+  def score_average
+    scores = self.subscriptions.map(&:score).compact
+    scores.inject{ |sum, el| sum + el }.to_f / scores.size
+  end
+
   private
 
   def set_active

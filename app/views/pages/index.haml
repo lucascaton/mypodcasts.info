@@ -38,4 +38,5 @@
                       =image_tag podcast.logo.url(:thumb)
                       =podcast.name
                   %td="(#{ pluralize podcast.subscriptions.count, 'ouvinte' })"
-                  %td=render 'subscriptions/links', podcast: podcast, subscription: @subscription, button_css: 'btn-mini'
+                  %td=render 'subscriptions/links', podcast: podcast, button_css: 'btn-mini',
+                    subscription: current_user.subscriptions.where(podcast_id: podcast.id).first || Subscription.new

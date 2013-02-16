@@ -1,9 +1,9 @@
 -if current_user
-  -if current_user.subscriptions.map(&:podcast).include? podcast
-    =link_to 'Retirar da minha lista',
-      subscription_path(current_user.subscriptions.where(podcast_id: podcast.id).first),
-      method: :delete, class: "btn btn-danger #{button_css}"
-  -else
+  -if subscription.new_record?
     =form_for subscription do |f|
       =f.hidden_field :podcast_id, value: podcast.id
       =f.button 'Incluir na minha lista', class: "btn btn-success #{button_css}"
+  -else
+    =link_to 'Retirar da minha lista', subscription_path(subscription),
+      method: :delete, class: "btn btn-danger #{button_css}",
+      confirm: 'Tem certeza que deseja retirar esse podcast da sua lista? Sua pontuação para esse podcast será perdida!'

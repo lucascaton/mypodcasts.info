@@ -3,18 +3,18 @@ class SubscriptionsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-  end
-
-  def create
     @subscription = Subscription.new params[:subscription]
     @subscription.user = current_user
 
-    if @subscription.save
-      redirect_to @subscription.podcast
-    else
-      flash.now[:error] = @subscription.errors.full_messages.join(', ')
-      render :new
-    end
+    @subscription.save
+    redirect_to @subscription.podcast
+  end
+
+  def update
+    @subscription = current_user.subscriptions.where(podcast_id: params[:subscription][:podcast_id]).first
+
+    @subscription.update_attributes score: params[:subscription][:score]
+    redirect_to @subscription.podcast
   end
 
   def destroy

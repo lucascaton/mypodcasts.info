@@ -14,6 +14,13 @@
           rel: 'popover', 'data-placement' => 'bottom',
           'data-original-title' => t('activerecord.attributes.podcast.itunes_url'),
           'data-trigger' => 'hover', 'data-content' => @podcast.itunes_url
+
+      %br
+        =form_for @subscription, html: { id: 'subscription_form' } do |f|
+          =f.hidden_field :podcast_id, value: @podcast.id
+          .centered-text
+            #star{ 'data-score' => @subscription.score }
+              =f.hidden_field :score
     .span9
       %h1=@podcast.name
       =render 'subscriptions/links', podcast: @podcast, subscription: @subscription, button_css: ''

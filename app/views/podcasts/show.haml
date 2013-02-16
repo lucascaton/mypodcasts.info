@@ -24,6 +24,7 @@
       -if @subscribers.any?
         .well
           %h4 Quem escuta?
+          %h5="(#{ pluralize @podcast.subscriptions.count, 'ouvinte' })"
           %table.table.table-striped
             %tbody
               -@subscribers.each do |user|
@@ -31,6 +32,7 @@
                   %td
                     =user.twitter_photo
                     =user.name
+                    [score p/ esse podcast]
 
 -else
   %h2=@podcast.name

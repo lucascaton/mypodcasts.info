@@ -27,8 +27,3 @@ p.podcast_overview{
   font-size: 1.4em;
   line-height: 160%;
 }
-
-table.table.table-striped td.highlighted{
-  border: 1px solid #CCC;
-  background: #EEE;
-}

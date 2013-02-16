@@ -16,10 +16,7 @@
           'data-trigger' => 'hover', 'data-content' => @podcast.itunes_url
     .span9
       %h1=@podcast.name
-      -if current_user.subscriptions.map(&:podcast).include? @podcast
-        =link_to 'Retirar da minha lista', '#', class: 'btn btn-danger'
-      -else
-        =link_to 'Incluir na minha lista', '#', class: 'btn btn-success'
+      =render 'subscriptions/links', podcast: @podcast, subscription: @subscription, button_css: ''
       %br
       %br
       .well

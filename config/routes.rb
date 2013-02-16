@@ -7,5 +7,5 @@ MyPodcasts::Application.routes.draw do
 
   resources :users, only: [:show]
   resources :podcasts, only: [:show, :new, :create]
-  resources :subscriptions, only: [:create]
+  resources :subscriptions, only: [:create, :destroy]
 end

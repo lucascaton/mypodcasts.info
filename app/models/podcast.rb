@@ -31,7 +31,7 @@ class Podcast < ActiveRecord::Base
 
   before_validation :set_active
 
-  has_attached_file :logo, styles: { logo: '300x300>', thumb: '100x100>' }
+  has_attached_file :logo, styles: { logo: '300x300>', thumb: '24x24>' }
 
   friendly_id :name, use: :slugged
 

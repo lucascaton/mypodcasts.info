@@ -4,7 +4,8 @@ class PodcastsController < ApplicationController
 
   def show
     @podcast = Podcast.find(params[:id]).decorate
-    @subscribers = @podcast.subscriptions.map(&:user)
+    @subscribers = @podcast.subscriptions.map { |subscription| subscription.user.decorate }
+    @subscription = Subscription.new
   end
 
   def new

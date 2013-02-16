@@ -5,15 +5,17 @@
       %br
       %br
       .centered_text
-        =link_to image_tag('feed.png'), @podcast.feed_url, target: '_blank',
-          rel: 'popover', 'data-placement' => 'bottom',
-          'data-original-title' => t('activerecord.attributes.podcast.feed_url'),
-          'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do seu leitor de feed'
+        -if @podcast.feed_url.present?
+          =link_to image_tag('feed.png'), @podcast.feed_url, target: '_blank',
+            rel: 'popover', 'data-placement' => 'bottom',
+            'data-original-title' => t('activerecord.attributes.podcast.feed_url'),
+            'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do seu leitor de feed'
 
-        =link_to image_tag('itunes.png'), @podcast.itunes_url, target: '_blank',
-          rel: 'popover', 'data-placement' => 'bottom',
-          'data-original-title' => t('activerecord.attributes.podcast.itunes_url'),
-          'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do iTunes'
+        -if @podcast.itunes_url.present?
+          =link_to image_tag('itunes.png'), @podcast.itunes_url, target: '_blank',
+            rel: 'popover', 'data-placement' => 'bottom',
+            'data-original-title' => t('activerecord.attributes.podcast.itunes_url'),
+            'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do iTunes'
 
       %br
       %h3 Sua nota

@@ -6,7 +6,9 @@ class PodcastsController < ApplicationController
     @podcast = Podcast.find(params[:id]).decorate
     @subscribers = @podcast.subscriptions.map { |subscription| subscription.user.decorate }
 
-    @subscription = current_user.subscriptions.where(podcast_id: @podcast.id).first || Subscription.new
+    if current_user
+      @subscription = current_user.subscriptions.where(podcast_id: @podcast.id).first || Subscription.new
+    end
   end
 
   def new

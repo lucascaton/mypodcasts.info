@@ -18,17 +18,19 @@
             'data-trigger' => 'hover', 'data-content' => 'Assine esse podcast através do iTunes'
 
       %br
-      %h3 Sua nota
-      =form_for @subscription, html: { id: 'subscription_form' } do |f|
-        =f.hidden_field :podcast_id, value: @podcast.id
-        .centered-text
-          #score{ 'data-score' => @subscription.score }
-            =f.hidden_field :score
+      -if current_user
+        %h3 Sua nota
+        =form_for @subscription, html: { id: 'subscription_form' } do |f|
+          =f.hidden_field :podcast_id, value: @podcast.id
+          .centered-text
+            #score{ 'data-score' => @subscription.score }
+              =f.hidden_field :score
       %h3 Nota média
       .score_read_only_big{ 'data-score' => @podcast.score_average }
     .span9
       %h1=@podcast.name
-      =render 'subscriptions/links', podcast: @podcast, subscription: @subscription
+      -if current_user
+        =render 'subscriptions/links', podcast: @podcast, subscription: @subscription
       %br
       %br
       .well

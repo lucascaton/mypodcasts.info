@@ -36,10 +36,15 @@ class Podcast < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   scope :actives, where(active: true)
+  scope :not_actives, where(active: false)
 
   def score_average
-    scores = self.subscriptions.map(&:score).compact
-    scores.inject{ |sum, el| sum + el }.to_f / scores.size
+    scores = self.subscriptions.pluck(:score).compact
+    scores.blank? ? 0 : scores.inject{ |sum, el| sum + el }.to_f / scores.size
+  end
+
+  def self.ordered
+   self.all.sort_by { |podcast| [podcast.score_average, podcast.subscriptions.count] }.reverse
   end
 
   private

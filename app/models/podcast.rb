@@ -1,3 +1,4 @@
+# encoding: utf-8
 # == Schema Information
 #
 # Table name: podcasts
@@ -22,9 +23,11 @@ class Podcast < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :name, :feed_url, :itunes_url, :logo, :created_by_id, :overview
 
-  validates :name, :created_by_id, :logo, presence: true
+  validates :name, :created_by_id, :logo, :feed_url, :itunes_url, :overview, presence: true
   validates :name, :feed_url, :itunes_url, uniqueness: true
   validates :active, inclusion: { in: [true, false] }
+
+  validate :different_urls_validation
 
   has_many :subscriptions
   belongs_to :created_by, class_name: 'User'
@@ -51,5 +54,9 @@ class Podcast < ActiveRecord::Base
 
   def set_active
     self.active = false if self.active.nil?
+  end
+
+  def different_urls_validation
+    errors.add(:base, 'As URLs do feed e do iTunes não podem ser a mesma') if self.feed_url == self.itunes_url
   end
 end

@@ -1,7 +1,12 @@
+.pull-right
+  %a.twitter-share-button(href='https://twitter.com/share' data-lang='pt-BR' data-url='http://mypodcasts.info'
+    data-via='mypodcastsinfo' data-text='Compartilhe os seus podcasts preferidos e descubra o que os seus amigos gostam de escutar!')
 .centered_text
   =image_tag 'logo_small.png'
 .well.centered_text
   %h3 Cadastre os seus podcasts preferidos, crie um perfil público para compartilhar os que você mais gosta através de notas e descubra o que os seus amigos gostam de escutar!
+  .fb-like{ :'data-href' => 'https://www.facebook.com/mypodcasts', :'data-send' => 'false',
+    :'data-layout' => 'button_count', :'data-width' => '450', :'data-show-faces' => 'true' }
 .row
   .span6
     .well

@@ -14,7 +14,7 @@ Rails.logger.level = 4 # reduce the IO during tests
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Requires supporting ruby files with macros
-# Dir[Rails.root.join('spec/features/macros/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/features/macros/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -28,7 +28,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  # config.include AcceptanceMacros, type: :feature
+  config.include AcceptanceMacros, type: :feature
   config.include FactoryGirl::Syntax::Methods
 end
 
@@ -39,3 +39,10 @@ Capybara.configure do |config|
   config.default_wait_time      = 10
   config.server_port            = 8200
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:twitter] = {
+  'provider' => 'twitter',
+  'uid'      => '1234',
+  'info'     => { 'nickname' => 'John Doe' }
+}

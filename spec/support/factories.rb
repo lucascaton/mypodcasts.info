@@ -17,8 +17,11 @@ FactoryGirl.define do
     sequence(:feed_url) { |n| "feed#{n}.com/feed" }
     sequence(:itunes_url) { |n| "itunes#{n}.com" }
     overview 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
-
     logo { fixture_file_upload "#{Rails.root}/spec/support/fixtures/sotix.jpg" }
+
+    trait :active do
+      active true
+    end
   end
 
   factory :subscription do

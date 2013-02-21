@@ -3,7 +3,7 @@ class PodcastsController < ApplicationController
   before_filter :authenticate_user!, except: [:show]
 
   def show
-    @podcast = Podcast.find(params[:id]).decorate
+    @podcast = Podcast.find params[:id]
     @subscribers = @podcast.subscriptions.map { |subscription| subscription.user.decorate }
 
     if current_user

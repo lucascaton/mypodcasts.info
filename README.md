@@ -1,4 +1,4 @@
-# My Podcasts
+# MyPodcasts.info
 
 http://mypodcasts.info
 

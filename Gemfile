@@ -36,6 +36,10 @@ group :test do
   gem 'simplecov', require: false
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'

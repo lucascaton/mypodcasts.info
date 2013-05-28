@@ -1,6 +1,6 @@
 # encoding: utf-8
 listen '/tmp/unicorn-mypodcasts.info.sock'
-worker_processes 2
+worker_processes 1
 app_root = File.expand_path('../../', __FILE__)
 pid "#{app_root}/tmp/pids/unicorn.pid"
 stderr_path "#{app_root}/log/unicorn.log"

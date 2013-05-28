@@ -1,5 +1,5 @@
 # encoding: utf-8
-listen '/tmp/unicorn-my_podcasts.sock'
+listen '/tmp/unicorn-mypodcasts.info.sock'
 worker_processes 2
 app_root = File.expand_path('../../', __FILE__)
 pid "#{app_root}/tmp/pids/unicorn.pid"

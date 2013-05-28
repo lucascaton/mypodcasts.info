@@ -8,7 +8,7 @@ describe 'Pages', type: :feature do
       expect(page).to have_selector("img[src$='logo_small.png']")
       expect(page).to have_no_link('Incluir outros podcasts')
       expect(page).to have_content('Cadastre os seus podcasts preferidos, crie um perfil público para compartilhar os que você mais gosta através de notas e descubra o que os seus amigos gostam de escutar!')
-      expect(page).to have_content("Copyright © #{Date.today.year} Lucas Caton. Todos os direitos reservados.")
+      expect(page).to have_content("Copyright © #{Date.today.year} Lucas Caton. Esse projeto é open source.")
     end
 
     it 'has users' do

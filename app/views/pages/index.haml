@@ -17,7 +17,7 @@
       %h2 Usuários
       -if current_user || @users.any?
         %br
-        %table.table.table-striped
+        %table#users_table.table.table-striped
           %tbody
             -([current_user] + @users).compact.each do |user|
               %tr{ class: user == current_user ? 'highlighted' : '' }

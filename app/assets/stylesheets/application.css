@@ -27,3 +27,11 @@ p.podcast_overview{
   font-size: 1.4em;
   line-height: 160%;
 }
+
+table#users_table{
+  margin-bottom: 0;
+}
+
+table#users_table td.photo_and_name{
+  width: 200px;
+}

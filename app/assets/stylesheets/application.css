@@ -28,7 +28,7 @@ p.podcast_overview{
   line-height: 160%;
 }
 
-table#users_table{
+table.table{
   margin-bottom: 0;
 }
 

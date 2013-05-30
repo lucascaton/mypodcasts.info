@@ -38,4 +38,19 @@ describe Subscription do
       end
     end
   end
+
+  describe 'scopes' do
+    let(:user)            { create :user }
+    let(:podcast_1)       { create :podcast, active: true }
+    let(:podcast_2)       { create :podcast, active: false }
+    let!(:subscription_1) { create :subscription, user: user, podcast: podcast_1 }
+    let!(:subscription_2) { create :subscription, user: user, podcast: podcast_2 }
+
+    describe '.actives' do
+      it 'returns all actives subscriptions' do
+        expect(user.subscriptions.actives).to eq([subscription_1])
+      end
+    end
+  end
+
 end

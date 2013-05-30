@@ -20,6 +20,7 @@ class PodcastsController < ApplicationController
     @podcast.created_by = current_user
 
     if @podcast.save
+      Subscription.create(podcast_id: @podcast.id, user_id: current_user.id)
       flash[:notice] = 'Podcast cadastrado. Aguarde a aprovação do mesmo.'
       redirect_to @podcast
     else

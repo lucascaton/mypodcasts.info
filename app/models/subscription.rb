@@ -18,4 +18,6 @@ class Subscription < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :podcast
+
+  scope :actives, joins(:podcast).where(podcasts: {active: true}).includes(:podcast)
 end

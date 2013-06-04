@@ -25,7 +25,7 @@
                   =link_to user.twitter_photo, profile_path(user.name)
                   =link_to user.name, profile_path(user.name)
                 %td
-                  ="(#{ pluralize user.subscriptions.count, 'podcast' })"
+                  ="(#{ pluralize user.subscriptions.actives.count, 'podcast' })"
 
   .span6
     .well

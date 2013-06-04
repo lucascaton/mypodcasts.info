@@ -50,10 +50,8 @@
                     Logar com o Twitter
 
     .container
-      .row
-        .span12
-          =bootstrap_flash
-          =yield
+      =bootstrap_flash
+      =yield
 
     %footer
       %p="Copyright &copy; #{Date.today.year} Lucas Caton. Esse projeto é #{link_to 'open source', 'https://github.com/lucascaton/mypodcasts.info', target: '_blank'}.".html_safe

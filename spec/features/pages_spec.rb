@@ -16,9 +16,12 @@ describe 'Pages', type: :feature do
       moe = create :user, name: 'John Moe'
       zoe = create :user, name: 'John Zoe'
 
-      create :subscription, user: moe, podcast_id: 1
-      create :subscription, user: zoe, podcast_id: 1
-      create :subscription, user: zoe, podcast_id: 2
+      podcast_a = create :podcast, :active
+      podcast_b = create :podcast, :active
+
+      create :subscription, user: moe, podcast: podcast_a
+      create :subscription, user: zoe, podcast: podcast_a
+      create :subscription, user: zoe, podcast: podcast_b
 
       visit root_path
       expect(page).to have_content('John Doe (0 podcasts)')

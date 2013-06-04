@@ -35,6 +35,8 @@ GEM
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     callsite (0.0.11)
     capybara (2.1.0)
@@ -57,6 +59,7 @@ GEM
     coffee-script-source (1.6.2)
     commonjs (0.2.6)
     daemons (1.1.9)
+    debug_inspector (0.0.2)
     diff-lcs (1.2.4)
     draper (1.2.1)
       actionpack (>= 3.0)
@@ -243,6 +246,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   better_errors
+  binding_of_caller
   capybara
   coffee-rails (~> 3.2.1)
   draper

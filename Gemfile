@@ -18,6 +18,7 @@ gem 'twitter-bootstrap-rails'
 group :development do
   gem 'annotate'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'meta_request'
   gem 'thin'
 end

@@ -35,3 +35,7 @@ table.table{
 table#users_table td.photo_and_name{
   width: 200px;
 }
+
+.pop a {
+  display: inline-block;
+}

@@ -1,5 +1,5 @@
-- title @podcast.name
-- description @podcast.overview
+-content_for(:title) { @podcast.name }
+-content_for(:meta_description) { @podcast.overview.gsub("\n", ' ').html_safe }
 
 -if @podcast.active?
   .row

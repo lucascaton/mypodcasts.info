@@ -3,8 +3,14 @@ require 'spec_helper'
 
 describe 'Users', type: :feature do
   describe 'show page' do
+    let(:user) { create :user, name: 'johndoe' }
+
+    it 'has the correct title' do
+      visit user_path(user, name: user.name)
+      expect(page).to have_title '@johndoe - MyPodcasts.info'
+    end
+
     it 'has the correct information' do
-      user = create :user, name: 'johndoe'
       podcast = create :podcast, :active, name: 'SotixCast'
       subscription = create :subscription, podcast: podcast, user: user
 

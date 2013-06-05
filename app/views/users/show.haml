@@ -1,4 +1,5 @@
-- title @user.name
+-content_for(:title) { "@#{@user.name}" }
+
 .row
   .span3
     =@user.twitter_photo('original')

@@ -4,9 +4,9 @@
     %meta(charset='utf-8')
     %meta(http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1')
     %meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    = show_title
-    = show_description
-    = csrf_meta_tags
+    %title=content_for?(:title) ? "#{yield(:title)} - MyPodcasts.info" : 'MyPodcasts.info'
+    -if content_for? :meta_description
+      %meta{ name: 'description', content: yield(:meta_description) }
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       =javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js'
@@ -16,6 +16,7 @@
     %link(href='images/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72')
     %link(href='images/apple-touch-icon.png' rel='apple-touch-icon-precomposed')
     =favicon_link_tag
+    =csrf_meta_tags
 
   %body
     #fb-root

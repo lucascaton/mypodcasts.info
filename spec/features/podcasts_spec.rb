@@ -5,6 +5,11 @@ describe 'Podcasts', type: :feature do
   let(:podcast) { create :podcast, :active, name: 'SotixCast' }
 
   describe 'show page' do
+    it 'has the correct title' do
+      visit podcast_path(podcast)
+      expect(page).to have_title 'SotixCast - MyPodcasts.info'
+    end
+
     context 'when podcast is active' do
       it 'has the correct information' do
         user = create :user, name: 'John Doe'

@@ -1,10 +1,13 @@
+- title @podcast.name
+- description @podcast.overview
+
 -if @podcast.active?
   .row
     .span3
       =image_tag @podcast.logo.url(:logo)
       %br
       %br
-      .centered_text
+      .centered_text.pop
         -if @podcast.feed_url.present?
           =link_to image_tag('feed.png'), @podcast.feed_url, target: '_blank',
             rel: 'popover', 'data-placement' => 'bottom',

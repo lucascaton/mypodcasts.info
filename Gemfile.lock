@@ -258,6 +258,7 @@ DEPENDENCIES
   fuubar
   haml-rails
   jquery-rails
+  less
   less-rails
   meta_request
   omniauth-twitter

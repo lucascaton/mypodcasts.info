@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Users', type: :feature do
   describe 'show page' do
-    let(:user) { create :user, name: 'johndoe' }
+    let(:user) { create :user, name: 'johndoe', image_url: 'https://api_twitter.com/an_image_with_normal_size.png' }
 
     it 'has the correct title' do
       visit user_path(user, name: user.name)
@@ -15,7 +15,7 @@ describe 'Users', type: :feature do
       subscription = create :subscription, podcast: podcast, user: user
 
       visit user_path(user, name: user.name)
-      expect(page).to have_selector("img[src$='https://api.twitter.com/1/users/profile_image?screen_name=johndoe&size=original']")
+      expect(page).to have_selector("img[src$='https://api_twitter.com/an_image_with_original_size.png']")
       expect(page).to have_content(user.name)
       expect(page).to have_content("Membro desde #{I18n.l(user.created_at.to_date)}")
 

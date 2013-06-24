@@ -8,6 +8,10 @@ class UserDecorator < Draper::Decorator
   # mini - 24px by 24px
   # original - This will be the size the image was originally uploaded in.
   def twitter_photo(size='mini')
-    h.image_tag "https://api.twitter.com/1/users/profile_image?screen_name=#{model.name}&size=#{size}"
+    if model.image_url
+      h.image_tag model.image_url.gsub(/normal/, size)
+    else
+      ''
+    end
   end
 end

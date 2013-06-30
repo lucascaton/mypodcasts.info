@@ -1,4 +1,3 @@
-# encoding: utf-8
 module AcceptanceMacros
   def authenticate
     visit root_path

@@ -1,4 +1,3 @@
-# encoding: utf-8
 listen '/tmp/unicorn-mypodcasts.info.sock'
 worker_processes 1
 app_root = File.expand_path('../../', __FILE__)

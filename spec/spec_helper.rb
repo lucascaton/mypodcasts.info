@@ -42,7 +42,8 @@ end
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:twitter] = {
-  'provider' => 'twitter',
-  'uid'      => '1234',
-  'info'     => { 'nickname' => 'John Doe' }
+  'provider'  => 'twitter',
+  'uid'       => '1234',
+  'image_url' => 'path.jpg',
+  'info'      => { 'nickname' => 'John Doe' }
 }

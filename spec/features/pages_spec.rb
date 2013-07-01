@@ -52,9 +52,7 @@ describe 'Pages', type: :feature do
   end
 
   context 'after authentication' do
-    before do
-      authenticate
-    end
+    before { authenticate }
 
     it 'has the correct flash message' do
       expect(page).to have_content('Logado com sucesso.')

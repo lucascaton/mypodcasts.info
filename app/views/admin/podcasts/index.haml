@@ -1,0 +1,30 @@
+.well
+  %h1 Podcasts
+
+-if @podcasts.any?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th &nbsp;
+        %th Id
+        %th Name
+        %th Active
+        %th Created at
+        %th Creator
+        %th &nbsp;
+
+    %tbody
+      -@podcasts.each do |podcast|
+        %tr
+          %td=image_tag podcast.logo.url(:thumb)
+          %td=podcast.id
+          %td=link_to podcast.name, podcast
+          %td=podcast.active
+          %td=l podcast.created_at, format: :short
+          %td
+            =link_to "@#{podcast.created_by.name}", profile_path(podcast.created_by.name)
+            =link_to '(twitter)', "https://twitter.com/#{podcast.created_by.name}"
+          %td=link_to 'Editar', edit_admin_podcast_path(podcast)
+
+-else
+  %p Nenhum podcast cadastrado.

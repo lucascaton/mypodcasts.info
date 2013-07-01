@@ -1,0 +1,54 @@
+.well
+  %h1=@podcast.name
+
+=form_for [:admin, @podcast], html: { class: 'form-horizontal', multipart: true } do |f|
+  .control-group
+    =f.label :name, class: 'control-label'
+    .controls
+      =f.text_field :name, class: 'text_field'
+
+  .control-group
+    =f.label :slug, class: 'control-label'
+    .controls
+      =f.text_field :slug, class: 'text_field'
+
+  .control-group
+    =f.label :overview, class: 'control-label'
+    .controls
+      =f.text_area :overview, rows: 5, class: 'input-xxlarge'
+
+  .control-group
+    =f.label :feed_url, class: 'control-label'
+    .controls
+      =f.text_field :feed_url, class: 'text_field', class: 'input-xxlarge'
+
+  .control-group
+    =f.label :itunes_url, class: 'control-label'
+    .controls
+      =f.text_field :itunes_url, class: 'text_field', class: 'input-xxlarge'
+
+  .control-group
+    =f.label :active, class: 'control-label'
+    .controls
+      =f.select :active, [true, false], selected: @podcast.active?
+
+  .control-group
+    =f.label :logo, class: 'control-label'
+    .controls
+      -if @podcast.logo.present?
+        =image_tag @podcast.logo.url(:logo)
+        %br
+
+      =f.file_field :logo, class: 'input-xlarge'
+      %span.help-block Utilize uma imagem de tamanho 300 X 300px.
+
+  .control-group
+    =f.label :created_by_id, class: 'control-label'
+    .controls
+      =f.select :created_by_id, @users.map { |user| ["@#{user.name} (##{user.id})", user.id] }, selected: @podcast.created_by_id
+
+  .form-actions
+    =f.submit 'Salvar', class: 'btn btn-primary'
+    =link_to 'Cancelar', admin_podcasts_path, class: 'btn'
+
+

@@ -3,6 +3,10 @@ defaults: &defaults
     consumer_key: ''
     consumer_secret: ''
 
+  authentication:
+    username:
+    password:
+
 development:
   <<: *defaults
 

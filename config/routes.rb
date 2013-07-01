@@ -1,6 +1,11 @@
 MyPodcasts::Application.routes.draw do
   root to: 'pages#index'
 
+  namespace :admin do
+    root to: 'pages#index'
+    resources :podcasts, only: [:index, :edit, :update]
+  end
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

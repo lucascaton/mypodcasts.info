@@ -20,7 +20,7 @@
 
 class Podcast < ActiveRecord::Base
   extend FriendlyId
-  attr_accessible :name, :feed_url, :itunes_url, :logo, :created_by_id, :overview
+  attr_accessible :name, :feed_url, :itunes_url, :logo, :created_by_id, :overview, :slug, :active
 
   validates :name, :created_by_id, :logo, :feed_url, :itunes_url, :overview, presence: true
   validates :name, :feed_url, :itunes_url, uniqueness: true

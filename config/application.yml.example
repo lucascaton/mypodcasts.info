@@ -4,8 +4,8 @@ defaults: &defaults
     consumer_secret: ''
 
   authentication:
-    username:
-    password:
+    username: ''
+    password: ''
 
 development:
   <<: *defaults

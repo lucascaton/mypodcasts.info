@@ -107,28 +107,28 @@ describe Podcast do
 
   describe '.ordered' do
     it 'returns the ordered list' do
-      podcast_1 = mock :podcast, score_average: 10
+      podcast_1 = double :podcast, score_average: 10
       podcast_1.stub_chain(:subscriptions, :count).and_return(50)
 
-      podcast_2 = mock score_average: 10
+      podcast_2 = double score_average: 10
       podcast_2.stub_chain(:subscriptions, :count).and_return(100)
 
-      podcast_3 = mock score_average: 9
+      podcast_3 = double score_average: 9
       podcast_3.stub_chain(:subscriptions, :count).and_return(10)
 
-      podcast_4 = mock score_average: 9
+      podcast_4 = double score_average: 9
       podcast_4.stub_chain(:subscriptions, :count).and_return(200)
 
-      podcast_5 = mock score_average: 8
+      podcast_5 = double score_average: 8
       podcast_5.stub_chain(:subscriptions, :count).and_return(5)
 
-      podcast_6 = mock score_average: 8
+      podcast_6 = double score_average: 8
       podcast_6.stub_chain(:subscriptions, :count).and_return(140)
 
-      podcast_7 = mock score_average: 8
+      podcast_7 = double score_average: 8
       podcast_7.stub_chain(:subscriptions, :count).and_return(600)
 
-      Podcast.stub!(:all).and_return([podcast_1, podcast_2, podcast_3, podcast_4, podcast_5, podcast_6, podcast_7])
+      Podcast.stub(:all).and_return([podcast_1, podcast_2, podcast_3, podcast_4, podcast_5, podcast_6, podcast_7])
       expect(Podcast.ordered).to eq([podcast_2, podcast_1, podcast_4, podcast_3, podcast_7, podcast_6, podcast_5])
     end
   end

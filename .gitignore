@@ -23,28 +23,11 @@
 /public/packages/*
 /public/system/*
 
-# Ignore files from text editors and IDEs
-Session.vim
-*.sw?
-
-# Ignore files from Operating System
-*~
-.DS_Store
-
-# Ignore files from Ctags
-/tags
-
 # Ignore files from RVM
 /.rvmrc
 
 # Ignore files from SASS
 /.sass-cache/
 
-# Ignore routes cache
-/.routes
-
 # Ignore simplecov files
 coverage/
-
-# Ignore other files
-rails_best_practices_output.html

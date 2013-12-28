@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.16'
 
+gem 'dotenv-rails'
 gem 'draper'
 gem 'friendly_id'
 gem 'haml-rails'

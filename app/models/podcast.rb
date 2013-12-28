@@ -28,14 +28,13 @@ class Podcast < ActiveRecord::Base
 
   validate :different_urls_validation
 
-  validates_attachment :logo, size: { in: 0..2.megabytes }
-
   has_many :subscriptions
   belongs_to :created_by, class_name: 'User'
 
   before_validation :set_active
 
   has_attached_file :logo, styles: { logo: '300x300>', thumb: '24x24>' }
+  validates_attachment :logo, size: { in: 0..2.megabytes }
 
   friendly_id :name, use: :slugged
 

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'rails', '3.2.16'
+
 gem 'draper'
 gem 'friendly_id'
 gem 'haml-rails'
@@ -10,7 +12,6 @@ gem 'less-rails'
 gem 'omniauth-twitter'
 gem 'paperclip'
 gem 'pg'
-gem 'rails', '3.2.13'
 gem 'rails-i18n'
 gem 'settingslogic'
 gem 'therubyracer'

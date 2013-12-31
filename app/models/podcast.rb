@@ -1,23 +1,3 @@
-# == Schema Information
-#
-# Table name: podcasts
-#
-#  id                :integer          not null, primary key
-#  name              :string(255)      not null
-#  feed_url          :string(255)
-#  itunes_url        :string(255)
-#  active            :boolean          default(FALSE), not null
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  logo_file_name    :string(255)
-#  logo_content_type :string(255)
-#  logo_file_size    :integer
-#  logo_updated_at   :datetime
-#  created_by_id     :integer          not null
-#  overview          :text
-#  slug              :string(255)
-#
-
 class Podcast < ActiveRecord::Base
   extend FriendlyId
   attr_accessible :name, :feed_url, :itunes_url, :logo, :created_by_id, :overview, :slug, :active

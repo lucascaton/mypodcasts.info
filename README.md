@@ -1,10 +1,21 @@
-# MyPodcasts.info
+![MyPodcasts Logo](https://raw.github.com/lucascaton/mypodcasts.info/master/app/assets/images/logo_small.png)
 
-http://mypodcasts.info
+## Fim do projeto
+
+O site [mypodcasts.info](http://mypodcasts.info/) chegou ao fim.
+Infelizmente não tenho mais tempo pra manter o projeto.
+
+Ele sempre foi e continuará sendo open-source. Encontre o código-fonte em [https://github.com/lucascaton/mypodcasts.info](https://github.com/lucascaton/mypodcasts.info).
+
+Se tiver interesse em manter o projeto, [entre em contato comigo](http://lucascaton.com.br/), eu transfiro o domínio, a conta do Twitter e tudo mais que for relevante.
+
+Obrigado aos que usavam e que apoiavam o projeto.
+
+---
 
 ## Licence
 
-Copyright (c) 2013 Lucas Caton
+Copyright (c) 2014 Lucas Caton
 
 MIT License
 

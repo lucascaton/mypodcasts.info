@@ -25,6 +25,7 @@ end
 
 group :development do
   gem 'puma'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

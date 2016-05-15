@@ -128,6 +128,8 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     puma (3.4.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.4.7)
     rack-cache (1.6.1)
       rack (>= 0.4)
@@ -225,6 +227,7 @@ DEPENDENCIES
   poltergeist
   pry
   puma
+  quiet_assets
   rails (= 3.2.22.2)
   rails-i18n
   rspec-rails

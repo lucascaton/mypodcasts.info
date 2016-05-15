@@ -29,6 +29,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'massa'
   gem 'pry'
 end
 
